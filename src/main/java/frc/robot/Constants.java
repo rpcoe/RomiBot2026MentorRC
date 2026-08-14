@@ -66,6 +66,6 @@ public final class Constants {
       public static final class GripperConstants {
           public static final int kServo = 3;   
           public static final double gripperMin = 0.3;   // 0.3 on SG-90
-          public static final double gripperMax = 0.6; //  0.65 on Romi-2,10:  0.6 nominally
+          public static final double gripperMax = 0.6; //  0.65 on Romi-2,3,10,11:  0.6 nominally
       } 
-}
+    }
