@@ -15,7 +15,7 @@ public class TurnLedOn extends Command {
   public TurnLedOn(OnBoardIO io) {
     // Use addRequirements() here to declare subsystem dependencies.
     m_io = io;
-    addRequirements(io);
+    //addRequirements(io);
   }
 
   // Called when the command is initially scheduled.
