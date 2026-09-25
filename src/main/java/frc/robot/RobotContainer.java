@@ -97,6 +97,7 @@ public class RobotContainer {
     SmartDashboard.putData("LED Yellow off", new LEDSet(LEDColor.YELLOW, false, led));
     SmartDashboard.putData("LED Red on", new LEDSet(LEDColor.RED, true, led));
     SmartDashboard.putData("LED Red off", new LEDSet(LEDColor.RED, false, led));
+    SmartDashboard.putData("LED Green toggle", new LEDSet(LEDColor.GREEN, true, led));
   
     //  GRIPPER commands
 

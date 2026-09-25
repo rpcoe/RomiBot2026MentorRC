@@ -29,6 +29,7 @@ public final class Constants {
         // Note - green LED should be at DIO address = 1
         public static final int dioRedLED = 2;
         public static final int dioYellowLED = 3;
+        public static final int dioGreenLED = 1;
     }
 
     public static final class DriveConstants{

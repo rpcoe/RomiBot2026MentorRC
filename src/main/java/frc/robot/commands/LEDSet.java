@@ -17,7 +17,8 @@ public class LEDSet extends Command {
   // Available LED colors on the Romi
   public enum LEDColor {
     YELLOW,
-    RED
+    RED,
+    GREEN
   }
 
   /**
