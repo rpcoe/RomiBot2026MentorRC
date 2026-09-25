@@ -48,6 +48,9 @@ public class LEDSet extends Command {
         led.setRedLed(turnOn);
         DataLogUtil.writeMessage("LEDSet:  Init, Red =", turnOn);
         break;
+      case GREEN:
+        led.setGreenLed(turnOn);
+        DataLogUtil.writeMessage("LEDSet:  Init, Green =", turnOn); 
     }
   }
 
