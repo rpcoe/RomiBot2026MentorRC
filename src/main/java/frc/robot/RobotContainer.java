@@ -11,6 +11,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Constants.OIConstants;
 import frc.robot.commands.*;
 import frc.robot.commands.LEDSet.LEDColor;
+import frc.robot.commands.ToggleLed;
+import frc.robot.subsystems.LED;
 import frc.robot.subsystems.*;
 import frc.robot.utilities.*;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -99,7 +101,8 @@ public class RobotContainer {
     SmartDashboard.putData("LED Red off", new LEDSet(LEDColor.RED, false, led));
     SmartDashboard.putData("LED Green on", new LEDSet(LEDColor.GREEN, true, led));
     SmartDashboard.putData("LED Green off", new LEDSet(LEDColor.GREEN, false, led));
-  
+    SmartDashboard.putData("Toggle LED", new ToggleLed(led));
+
     //  GRIPPER commands
 
     SmartDashboard.putData("Gripper Open", new GripperSet(m_gripper, 0.0));   //These are extremes. Acturals will be determined by gripperMax and gripperMin in Constants.GripperConstants

@@ -5,28 +5,34 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj.romi.OnBoardIO;
+import frc.robot.subsystems.LED;
+import frc.robot.utilities.DataLogUtil;
 
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
-public class TurnLedOn extends Command {
-  private final OnBoardIO m_io;
-  
-  /** Creates a new TurnLedOn. */
-  public TurnLedOn(OnBoardIO io) {
-    // Use addRequirements() here to declare subsystem dependencies.
-    m_io = io;
-    //addRequirements(io);
-  }
+public class ToggleLed extends Command {
+  private final LED led;
 
+  /** Creates a new ToggleLed. 
+   * @param led The LED subsystem this command will run on.
+   * */
+  public ToggleLed(LED led) {
+    this.led = led;
+    addRequirements(led);
+  }
+  
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
+  public void initialize() {
+    if ( led  .getGreenLed()) {
+      led.setGreenLed(false);
+    } else {
+      led .setGreenLed(true);
+    }
+  }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {
-    m_io.setGreenLed(true);
-  }
+  public void execute() {}
 
   // Called once the command ends or is interrupted.
   @Override
@@ -35,6 +41,6 @@ public class TurnLedOn extends Command {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    return true;
   }
 }

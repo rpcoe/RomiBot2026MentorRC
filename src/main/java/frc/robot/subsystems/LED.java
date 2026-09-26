@@ -85,6 +85,21 @@ public class LED extends SubsystemBase {
     greenIsOn = turnOn;
   }
 
+  /*returns the state of the yellow LED  */
+  public boolean getYellowLed() {
+    return yellowIsOn;
+  }
+
+  /*returns the state of the red LED  */
+  public boolean getRedLed() {
+    return redIsOn;
+  }
+
+  /*returns the state of the green LED  */
+  public boolean getGreenLed() {
+    return greenIsOn;
+  }
+
   /**
    * Write information about the LEDs to the file log.
    * @param logWhenDisabled true = write when robot is disabled, false = only write when robot is enabled
