@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.LED;
 import frc.robot.utilities.DataLogUtil;
 
+
 public class LEDSet extends Command {
   private final LED led;
   private final LEDColor color;
@@ -16,7 +17,8 @@ public class LEDSet extends Command {
   // Available LED colors on the Romi
   public enum LEDColor {
     YELLOW,
-    RED
+    RED,
+    GREEN
   }
 
   /**
@@ -46,6 +48,9 @@ public class LEDSet extends Command {
         led.setRedLed(turnOn);
         DataLogUtil.writeMessage("LEDSet:  Init, Red =", turnOn);
         break;
+      case GREEN:
+        led.setGreenLed(turnOn);
+        DataLogUtil.writeMessage("LEDSet:  Init, Green =", turnOn); 
     }
   }
 

@@ -24,7 +24,7 @@ public class AutoGrab extends SequentialCommandGroup {
         new GripperSet(gripper, 0),
         new DriveTime(0.4, 1, drivetrain),
         new GripperSet(gripper, 0.9),
-        new DriveTime(0, 0.25, drivetrain),   // pause to allow gripper to close
+        new DriveTime(0, 0.4, drivetrain),   // pause to allow gripper to close
         new DriveTime(-0.4, 0.8, drivetrain),
         new GripperSet(gripper, 0),
         new DriveTime(-.20, 0.5, drivetrain)   

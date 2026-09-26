@@ -25,15 +25,18 @@ public class LED extends SubsystemBase {
   private final DataLog log = DataLogManager.getLog();
   private final BooleanLogEntry dLogYellow = new BooleanLogEntry(log, "/LED/YellowIsOn");
   private final BooleanLogEntry dLogRed = new BooleanLogEntry(log, "/LED/RedIsOn");
+  private final BooleanLogEntry dLogGreen = new BooleanLogEntry(log, "/LED/GreenIsOn");
+
 
   // LED objects
   private final DigitalOutput ledYellow = new DigitalOutput(dioYellowLED);
   private final DigitalOutput ledRed = new DigitalOutput(dioRedLED);
+  private final DigitalOutput ledGreen = new DigitalOutput(dioGreenLED);
 
   // LED tracking variables
   boolean yellowIsOn = false;
   boolean redIsOn = false;
-
+  boolean greenIsOn = false;
 
   /**
    * Creates the LED subsystem.
@@ -47,7 +50,7 @@ public class LED extends SubsystemBase {
     // Initialize LEDs
     setYellowLed(false);
     setRedLed(false);
-
+    setGreenLed(false);
     // Prime the DataLog to reduce delay when first enabling the robot
     updateLog(true);
   }
@@ -73,6 +76,31 @@ public class LED extends SubsystemBase {
   }
 
   /**
+   * Sets the green LED.
+   *
+   * @param turnOn true = turn the Green LED on, false = turn the Green LED off
+   */
+  public void setGreenLed(boolean turnOn) {
+    ledGreen.set(turnOn);
+    greenIsOn = turnOn;
+  }
+
+  /*returns the state of the yellow LED  */
+  public boolean getYellowLed() {
+    return yellowIsOn;
+  }
+
+  /*returns the state of the red LED  */
+  public boolean getRedLed() {
+    return redIsOn;
+  }
+
+  /*returns the state of the green LED  */
+  public boolean getGreenLed() {
+    return greenIsOn;
+  }
+
+  /**
    * Write information about the LEDs to the file log.
    * @param logWhenDisabled true = write when robot is disabled, false = only write when robot is enabled
    */
@@ -82,6 +110,7 @@ public class LED extends SubsystemBase {
 
       dLogYellow.append(yellowIsOn, timeNow);
       dLogRed.append(redIsOn, timeNow);
+      dLogGreen.append(greenIsOn, timeNow);
     }
   }
 
@@ -93,6 +122,7 @@ public class LED extends SubsystemBase {
       // Update data on SmartDashboard  
       SmartDashboard.putBoolean("LED Yellow", yellowIsOn);
       SmartDashboard.putBoolean("LED Red", redIsOn);
+      SmartDashboard.putBoolean("LED Green", greenIsOn);
 
       // Update filelog
       updateLog(false);
