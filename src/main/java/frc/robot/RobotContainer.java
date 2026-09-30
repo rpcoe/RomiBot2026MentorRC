@@ -11,8 +11,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Constants.OIConstants;
 import frc.robot.commands.*;
 import frc.robot.commands.LEDSet.LEDColor;
-import frc.robot.commands.ToggleLed;
-import frc.robot.subsystems.LED;
 import frc.robot.subsystems.*;
 import frc.robot.utilities.*;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -93,6 +91,10 @@ public class RobotContainer {
     SmartDashboard.putData("Drive 3 sec", new DriveTime(0.5, 3, romiDrivetrain));
     SmartDashboard.putData("Drive Turn", new DriveTurn(DriveTurn.TurnMode.GYRO_ABSOLUTE, romiDrivetrain));
     SmartDashboard.putData("AutonomousDistance", new AutonomousSquare(romiDrivetrain));
+    SmartDashboard.putData("Drive Straight Distance", new DriveStraightDistance(12.0, romiDrivetrain));
+    SmartDashboard.putNumber("DriveStraightDistance: Target Distance (inches)", 12.0);
+    SmartDashboard.putData("Drive With Joystick", new DriveWithJoystick(leftJoystick, romiDrivetrain));
+
     SmartDashboard.putData("AutoGrab", new AutoGrab(romiDrivetrain, m_gripper));
     // LED commands
     SmartDashboard.putData("LED Yellow on", new LEDSet(LEDColor.YELLOW, true, led));
