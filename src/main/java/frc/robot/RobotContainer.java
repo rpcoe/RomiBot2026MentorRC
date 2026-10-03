@@ -25,7 +25,7 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 public class RobotContainer {
   // Define robot subsystems  
   private final RomiDrivetrain romiDrivetrain = new RomiDrivetrain();
-  private final GripperSubsystem m_gripper = new GripperSubsystem(Constants.GripperConstants.kServo);
+  private final GripperSubsystem gripperSubsystem = new GripperSubsystem(Constants.GripperConstants.kServo);
   private final LED led = new LED();
   //private final GripperSubsystem m_servo = new GripperSubsystem(Constants.GripperConstants.kServo);
   // Define other utilities
@@ -81,7 +81,7 @@ public class RobotContainer {
   private void configureDashboard() {
     // auto selection widget
     m_chooser.setDefaultOption("Auto Routine Time", new  DriveTime(0.3, 1, romiDrivetrain));
-    m_chooser.addOption("Auto Grab", new AutoGrab(romiDrivetrain, m_gripper));
+    m_chooser.addOption("Auto Grab", new AutoGrab(romiDrivetrain, gripperSubsystem));
     m_chooser.addOption("Auto Drive a Square", new AutonomousSquare(romiDrivetrain ));
     
 
@@ -96,7 +96,7 @@ public class RobotContainer {
     SmartDashboard.putNumber("DriveStraightDistance: Target Distance (inches)", 12.0);
     SmartDashboard.putData("Drive With Joystick", new DriveWithJoystick(leftJoystick, romiDrivetrain));
 
-    SmartDashboard.putData("AutoGrab", new AutoGrab(romiDrivetrain, m_gripper));
+    SmartDashboard.putData("AutoGrab", new AutoGrab(romiDrivetrain, gripperSubsystem));
     // LED commands
     SmartDashboard.putData("LED Yellow on", new LEDSet(LEDColor.YELLOW, true, led));
     SmartDashboard.putData("LED Yellow off", new LEDSet(LEDColor.YELLOW, false, led));
@@ -108,9 +108,9 @@ public class RobotContainer {
 
     //  GRIPPER commands
     //These are extremes. Actuals will be determined by gripperMax and gripperMin in Constants.GripperConstants
-    SmartDashboard.putData("Gripper Open", new GripperSet(m_gripper, 0.0));   
-    SmartDashboard.putData("Gripper Close", new GripperSet(m_gripper, 1.0));
-    SmartDashboard.putData("Gripper Test", new GripperTest(m_gripper));
+    SmartDashboard.putData("Gripper Open", new GripperSet(gripperSubsystem, 0.0));   
+    SmartDashboard.putData("Gripper Close", new GripperSet(gripperSubsystem, 1.0));
+    SmartDashboard.putData("Gripper Test", new GripperTest(gripperSubsystem));
 
   }
 
@@ -163,7 +163,7 @@ public class RobotContainer {
    * Method called when teleop mode is initialized/enabled.
    */
   public void teleopInit() {
-    m_gripper.setPosition(0.5);
+    gripperSubsystem.setPosition(0.5);
     DataLogUtil.writeMessageEcho("Teleop: Mode Init");
   }
 
