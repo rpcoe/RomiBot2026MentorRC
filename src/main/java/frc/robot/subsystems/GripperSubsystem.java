@@ -43,7 +43,7 @@ public class GripperSubsystem extends SubsystemBase {
     /**
      * Gets the current servo position.
      *
-     * @return The current position value, from 0.5 to 1.0.5     */
+     * @return The current position value    */
     public double getPosition() {
         return m_servo.get();
     }

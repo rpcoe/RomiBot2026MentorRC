@@ -23,6 +23,7 @@ public class ToggleLed extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
+    DataLogUtil.writeMessageEcho("ToggleLed: initialize" + " - Current Green LED State: " + led.getGreenLed());
     if ( led  .getGreenLed()) {
       led.setGreenLed(false);
     } else {

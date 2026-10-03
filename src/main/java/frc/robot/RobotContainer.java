@@ -107,8 +107,8 @@ public class RobotContainer {
     SmartDashboard.putData("Toggle LED", new ToggleLed(led));
 
     //  GRIPPER commands
-
-    SmartDashboard.putData("Gripper Open", new GripperSet(m_gripper, 0.0));   //These are extremes. Acturals will be determined by gripperMax and gripperMin in Constants.GripperConstants
+    //These are extremes. Actuals will be determined by gripperMax and gripperMin in Constants.GripperConstants
+    SmartDashboard.putData("Gripper Open", new GripperSet(m_gripper, 0.0));   
     SmartDashboard.putData("Gripper Close", new GripperSet(m_gripper, 1.0));
     SmartDashboard.putData("Gripper Test", new GripperTest(m_gripper));
 
