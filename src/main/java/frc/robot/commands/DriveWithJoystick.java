@@ -35,7 +35,7 @@ public class DriveWithJoystick extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    DataLogUtil.writeMessage("DriveWithJoystick:  Init");
+    DataLogUtil.writeMessageEcho("DriveWithJoystick:  Init");
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -44,10 +44,10 @@ public class DriveWithJoystick extends Command {
 
     // romiDrivetrain.arcadeDrive(-joystick.getY(), -joystick.getX(), false);
 
-    //double xSpeed = MathUtil.applyDeadband(-joystick.getY(), OIConstants.joystickDeadband);
-    //double zRotation = MathUtil.applyDeadband(-joystick.getX(), OIConstants.joystickDeadband);
-    double xSpeed  = 0.0;   //I am not using the joystick for now, so set to 0.0
-    double zRotation = 0.0;
+    double xSpeed = MathUtil.applyDeadband(-joystick.getY(), OIConstants.joystickDeadband);
+    double zRotation = MathUtil.applyDeadband(-joystick.getX(), OIConstants.joystickDeadband);
+    //double xSpeed  = 0.0;   //I am not using the joystick for now, so set to 0.0
+    //double zRotation = 0.0;
 
     xSpeed = MathUtil.clamp(xSpeed, -1.0, 1.0);
     zRotation = MathUtil.clamp(zRotation, -1.0, 1.0);

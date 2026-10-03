@@ -31,8 +31,9 @@ public class RobotContainer {
   // Define other utilities
 
   // Define controllers
-  // private final CommandXboxController xboxController = new CommandXboxController(OIConstants.usbXboxController);
-  private final Joystick leftJoystick = new Joystick(OIConstants.usbLeftJoystick);
+   //private final CommandXboxController xboxController = new CommandXboxController(OIConstants.usbXboxController);
+  //private final Joystick leftJoystick = new Joystick(OIConstants.usbLeftJoystick);
+    private final Joystick leftJoystick = new Joystick(OIConstants.usbXboxController);
   // private final Joystick rightJoystick = new Joystick(OIConstants.usbRightJoystick);
   // private final Joystick coPanel = new Joystick(OIConstants.usbCoPanel);
 
