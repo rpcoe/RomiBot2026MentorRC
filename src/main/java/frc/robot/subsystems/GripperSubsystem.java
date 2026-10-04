@@ -53,15 +53,15 @@ public class GripperSubsystem extends SubsystemBase {
     @Override
     public void periodic() {
     // Continuously read the slider value from the dashboard (returns 0.5 if not found)
-    double targetPosition = SmartDashboard.getNumber("Gripper Target Position", 0.5);
-  
+    /* double targetPosition = SmartDashboard.getNumber("Gripper Target Position", 0.5);
+    
 
-    SmartDashboard.putNumber("Gripper Position", getPosition());
- 
-    targetPosition = MathUtil.clamp(targetPosition, gripperMin, gripperMax);
-        
-    // Set the servo position (WPILib Servo accepts values from 0.0 to 1.0)
-    m_servo.set(targetPosition);    
+        SmartDashboard.putNumber("Gripper Position", getPosition());
+    
+        targetPosition = MathUtil.clamp(targetPosition, gripperMin, gripperMax);
+            
+        // Set the servo position (WPILib Servo accepts values from 0.0 to 1.0)
+        m_servo.set(targetPosition);    */
   }
 
     
