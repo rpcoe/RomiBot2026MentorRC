@@ -111,7 +111,7 @@ public class RobotContainer {
     SmartDashboard.putData("Gripper Open", new GripperSet(gripperSubsystem, 0.0));   
     SmartDashboard.putData("Gripper Close", new GripperSet(gripperSubsystem, 1.0));
     SmartDashboard.putData("Gripper Test", new GripperTest(gripperSubsystem));
-
+    SmartDashboard.putNumber("Gripper Target Position", 0.5);
   }
 
   
