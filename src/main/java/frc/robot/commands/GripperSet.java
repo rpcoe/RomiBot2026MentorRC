@@ -44,7 +44,7 @@ private final double m_position;
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    m_gripperSubsystem.setPosition(0.5);   // This should be to initial position in constants
+    //m_gripperSubsystem.setPosition(0.5);   // This should be to initial position in constants
   }
 
   // Returns true when the command should end.
