@@ -50,7 +50,7 @@ public class RobotContainer {
     configureDashboard();
 
     // Set any default commands for subsystems
-    romiDrivetrain.setDefaultCommand( new DriveWithJoystick(leftJoystick, romiDrivetrain) );
+    romiDrivetrain.setDefaultCommand( new DriveArcade(leftJoystick, romiDrivetrain) );
   }
 
   /**
@@ -94,7 +94,8 @@ public class RobotContainer {
     SmartDashboard.putData("AutonomousDistance", new AutonomousSquare(romiDrivetrain));
     SmartDashboard.putData("Drive Straight Distance", new DriveStraightDistance(12.0, romiDrivetrain));
     SmartDashboard.putNumber("DriveStraightDistance: Target Distance (inches)", 12.0);
-    SmartDashboard.putData("Drive With Joystick", new DriveWithJoystick(leftJoystick, romiDrivetrain));
+    SmartDashboard.putData("Arcade Drive", new DriveArcade(leftJoystick, romiDrivetrain));
+    SmartDashboard.putData("Tank Drive", new DriveTank(leftJoystick, romiDrivetrain));
 
     SmartDashboard.putData("AutoGrab", new AutoGrab(romiDrivetrain, gripperSubsystem));
     // LED commands

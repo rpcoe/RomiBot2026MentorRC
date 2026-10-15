@@ -41,7 +41,6 @@ public class DriveTime extends Command {
     // Save the time when the command started running (now)
     m_startTime = System.currentTimeMillis();
     DataLogUtil.writeMessageEcho("DriveTime init ");
-    System.out.println("STARTING DRIVE TIME");
 
     // Dirve at desired speed
     m_drive.arcadeDrive(m_percent, 0, false);
@@ -58,6 +57,7 @@ public class DriveTime extends Command {
   @Override
   public void end(boolean interrupted) {
     // Turn off the motors
+    DataLogUtil.writeMessageEcho("DriveTime end ");
     m_drive.stopMotors();
   }
 

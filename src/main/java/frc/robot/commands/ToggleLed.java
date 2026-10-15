@@ -24,7 +24,7 @@ public class ToggleLed extends Command {
   @Override
   public void initialize() {
     DataLogUtil.writeMessageEcho("ToggleLed: initialize" + " - Current Green LED State: " + led.getGreenLed());
-    if ( led  .getGreenLed()) {
+    if ( led.getGreenLed()) {
       led.setGreenLed(false);
     } else {
       led .setGreenLed(true);

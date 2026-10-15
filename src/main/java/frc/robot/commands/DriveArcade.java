@@ -11,7 +11,7 @@ import frc.robot.Constants.OIConstants;
 import frc.robot.subsystems.RomiDrivetrain;
 import frc.robot.utilities.DataLogUtil;
 
-public class DriveWithJoystick extends Command {
+public class DriveArcade extends Command {
 
   // Parameters from constructor
   private final Joystick joystick;
@@ -23,7 +23,7 @@ public class DriveWithJoystick extends Command {
    * @param joystick Joystick to use for driving
    * @param romiDrivetrain
    */
-  public DriveWithJoystick(Joystick joystick, RomiDrivetrain romiDrivetrain) {
+  public DriveArcade(Joystick joystick, RomiDrivetrain romiDrivetrain) {
     // Save parameters to use in other methods below
     this.joystick = joystick;
     this.romiDrivetrain = romiDrivetrain;
@@ -35,7 +35,7 @@ public class DriveWithJoystick extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    DataLogUtil.writeMessageEcho("DriveWithJoystick:  Init");
+    DataLogUtil.writeMessageEcho("Arcade Drive:  Init");
   }
 
   // Called every time the scheduler runs while the command is scheduled.
