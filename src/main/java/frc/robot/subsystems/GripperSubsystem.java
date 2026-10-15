@@ -23,14 +23,14 @@ public class GripperSubsystem extends SubsystemBase {
     public GripperSubsystem(int channel) {
         m_servo = new Servo(channel);
         // Initialize the NetworkTable entry with a default value of 0.5  This is because the default PWM is 0.5
-        SmartDashboard.putNumber("Gripper Target Position", 0.5);
+        //SmartDashboard.putNumber("Gripper Target Position", 0.5);
     }
     
 
     /**
      * Sets the servo position.
      *
-     * @param position The position value to set, ranging from 0.0 (minimum) to 1.0 (maximum).
+     * @param position The position value to set, ranging from gripperMin to gripperMax.
     */
     public void setPosition(double position) {
 
@@ -43,7 +43,7 @@ public class GripperSubsystem extends SubsystemBase {
     /**
      * Gets the current servo position.
      *
-     * @return The current position value, from 0.5 to 1.0.5     */
+     * @return The current position value    */
     public double getPosition() {
         return m_servo.get();
     }
