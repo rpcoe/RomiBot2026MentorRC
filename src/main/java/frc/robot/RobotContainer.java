@@ -178,6 +178,7 @@ public class RobotContainer {
    */
   public void autonomousInit() {
     DataLogUtil.writeMessageEcho("Auto: Mode Init ");
+    
   }
 
    /**
