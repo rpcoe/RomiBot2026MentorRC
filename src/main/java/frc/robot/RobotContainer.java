@@ -4,6 +4,11 @@
 
 package frc.robot;
 
+import java.util.Optional;
+
+import com.google.errorprone.annotations.Var;
+
+import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -16,6 +21,11 @@ import frc.robot.utilities.*;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
+import choreo.Choreo;
+import choreo.trajectory.DifferentialSample;
+import choreo.trajectory.Trajectory;
+import java.util.Optional;
+
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
  * "declarative" paradigm, very little robot logic should actually be handled in the {@link Robot}
@@ -27,8 +37,12 @@ public class RobotContainer {
   private final RomiDrivetrain romiDrivetrain = new RomiDrivetrain();
   private final GripperSubsystem gripperSubsystem = new GripperSubsystem(Constants.GripperConstants.kServo);
   private final LED led = new LED();
-  //private final GripperSubsystem m_servo = new GripperSubsystem(Constants.GripperConstants.kServo);
+
   // Define other utilities
+  //private final trajectory = Choreo.loadTrajectory("Path_1");
+// Declare and load at startup (e.g., in RobotContainer or Subsystem init)
+  private final Optional<Trajectory<DifferentialSample>> trajectory = 
+    Choreo.loadTrajectory("Path_1");
 
   // Define controllers
    //private final CommandXboxController xboxController = new CommandXboxController(OIConstants.usbXboxController);
@@ -83,6 +97,7 @@ public class RobotContainer {
     m_chooser.setDefaultOption("Auto Routine Time", new  DriveTime(0.3, 1, romiDrivetrain));
     m_chooser.addOption("Auto Grab", new AutoGrab(romiDrivetrain, gripperSubsystem));
     m_chooser.addOption("Auto Drive a Square", new AutonomousSquare(romiDrivetrain ));
+    m_chooser.addOption("Auto Follow Trajectory", new AutoFollowTrajectory(romiDrivetrain));
     
 
     SmartDashboard.putData(m_chooser);
@@ -177,8 +192,11 @@ public class RobotContainer {
    * Method called when autonomouse mode is initialized/enabled.
    */
   public void autonomousInit() {
-    DataLogUtil.writeMessageEcho("Auto: Mode Init ");
-    
+    DataLogUtil.writeMessageEcho("Auto: Mode Init ");   
+
+    // Reset odometry to the start of the trajectory
+    romiDrivetrain.resetPose(null);
+        
   }
 
    /**
