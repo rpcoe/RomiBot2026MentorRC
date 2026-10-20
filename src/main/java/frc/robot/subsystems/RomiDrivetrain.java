@@ -328,13 +328,17 @@ public class RomiDrivetrain extends SubsystemBase implements Loggable {
    *    <p> Robot angle on the field (0 = facing away from our drivestation, + to the left, - to the right)
    */
   public void resetPose(Pose2d pose) {
+    if (pose == null) {
+        return; // Prevent NullPointerException
+    }
     zeroGyroRotation(pose.getRotation().getDegrees());
     zeroEncoders();
-
+ 
     odometry.resetPosition( Rotation2d.fromDegrees(getGyroRotation()),
       Units.inchesToMeters(getLeftDistanceInch()), 
       Units.inchesToMeters(getRightDistanceInch()), 
-      pose );
+      pose );  
+
   }
 
   // ************ Information methods
